@@ -96,7 +96,7 @@ public class NodePlayer implements NodePlayerView.RenderCallback {
             };
             AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
             am.requestAudioFocus(sAudioFocusChangeListener, AudioManager.STREAM_VOICE_CALL, AudioManager.AUDIOFOCUS_GAIN);
-            am.setAllowedCapturePolicy(AudioAttributes.ALLOW_CAPTURE_BY_NONE);
+   //am.setAllowedCapturePolicy(AudioAttributes.ALLOW_CAPTURE_BY_NONE);
             am.setMode(AudioManager.MODE_IN_CALL);
         }
         players.add(this);
