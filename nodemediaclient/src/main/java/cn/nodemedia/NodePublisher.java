@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.media.AudioManager;
+import android.media.AudioAttributes;
 import android.support.annotation.NonNull;
 import android.view.WindowManager;
 
@@ -116,7 +117,7 @@ public class NodePublisher implements NodeCameraView.NodeCameraViewCallback {
             };
             AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
             am.requestAudioFocus(sAudioFocusChangeListener, AudioManager.STREAM_VOICE_CALL, AudioManager.AUDIOFOCUS_GAIN);
-
+            am.setAllowedCapturePolicy(AudioAttributes.ALLOW_CAPTURE_BY_NONE);
         }
         publishers.add(this);
     }

@@ -2,6 +2,7 @@ package cn.nodemedia;
 
 import android.content.Context;
 import android.media.AudioManager;
+import android.media.AudioAttributes;
 import android.support.annotation.NonNull;
 import android.view.Surface;
 
@@ -95,7 +96,7 @@ public class NodePlayer implements NodePlayerView.RenderCallback {
             };
             AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
             am.requestAudioFocus(sAudioFocusChangeListener, AudioManager.STREAM_VOICE_CALL, AudioManager.AUDIOFOCUS_GAIN);
-
+            am.setAllowedCapturePolicy(AudioAttributes.ALLOW_CAPTURE_BY_NONE);
         }
         players.add(this);
     }
